@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>My Love for You</title>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@400;700&display=swap');
+	
+			body, html {
+				margin: 0;
+				padding: 0;
+				font-family: 'Roboto', sans-serif;
+				min-height: 100vh;
+				background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+				color: #333;
+				overflow-x: hidden;
+			}
+	
+			.container {
+				max-width: 800px;
+				margin: 2rem auto;
+				background-color: rgba(255, 255, 255, 0.9);
+				border-radius: 20px;
+				padding: 2rem;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+				position: relative;
+				z-index: 10;
+			}
+	
+			h1, h2 {
+				font-family: 'Dancing Script', cursive;
+				color: #e11d48;
+				text-align: center;
+			}
+	
+			h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+			h2 { font-size: 2rem; margin-top: 2rem; }
+	
+			p {
+				line-height: 1.6;
+				margin-bottom: 1.5rem;
+			}
+	
+			.heart {
+				color: #e11d48;
+				font-size: 3rem;
+				text-align: center;
+				animation: pulse 1.5s infinite;
+			}
+	
+			.photo-container {
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
+				margin: 2rem 0;
+			}
+	
+			.memory {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+	
+			.memory-photo {
+				width: 200px;
+				height: 200px;
+				object-fit: cover;
+				object-position: top;
+				border-radius: 10px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease;
+			}
+	
+			.memory-photo:hover {
+				transform: scale(1.05);
+			}
+	
+			.memory-description {
+				flex: 1;
+			}
+	
+			.main-photo {
+				width: 100%;
+				max-width: 300px;
+				height: auto;
+				aspect-ratio: 1 / 1;
+				object-fit: cover;
+				border-radius: 10px;
+				margin: 0 auto 2rem;
+				display: block;
+			}
+	
+			.random-moments {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 1rem;
+				margin: 2rem 0;
+				
+			}
+	
+			.random-moment1 {
+				width: 100%;
+				aspect-ratio: 1 / 1;
+				object-fit: cover;
+				border-radius: 10px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				object-position: top;
+			}
+			.random-moment {
+				width: 100%;
+				aspect-ratio: 1 / 1;
+				object-fit: cover;
+				border-radius: 10px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			}
+	
+			.floating-element {
+				position: absolute;
+				font-size: 24px;
+				pointer-events: none;
+			}
+	
+			.music-control {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				z-index: 20;
+			}
+	
+			.music-btn {
+				background-color: rgba(255, 255, 255, 0.5);
+				border: none;
+				border-radius: 50%;
+				width: 50px;
+				height: 50px;
+				font-size: 24px;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+			}
+	
+			.music-btn:hover {
+				background-color: rgba(255, 255, 255, 0.75);
+			}
+	
+			.heart-pulse {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(225, 29, 72, 0.1);
+				z-index: 0;
+				animation: heartbeat 1.5s ease-in-out infinite;
+			}
+	
+			@keyframes float {
+				0%, 100% { transform: translateY(0); }
+				50% { transform: translateY(-20px); }
+			}
+	
+			@keyframes pulse {
+				0%, 100% { transform: scale(1); }
+				50% { transform: scale(1.1); }
+			}
+	
+			@keyframes heartbeat {
+				0%, 100% { transform: scale(1); }
+				50% { transform: scale(1.1); }
+			}
+	
+			@media (max-width: 600px) {
+				.container { padding: 1rem; }
+				h1 { font-size: 2rem; }
+				.memory { flex-direction: column; text-align: center; }
+				.memory-photo { width: 100%; height: auto; }
+			}
+		</style>
+	</head>
+<body>
+	<div id="notification" style="display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.8); color: #ffffff; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); font-size: 1.5rem; text-align: center; font-weight: bold; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">
+        Klik ikon speaker untuk memutar musik biar suasananya
+    </div>
+
+    <div class="heart-pulse"></div>
+
+	
+
+    <div class="container">
+        <h1>Haloo Sayangg</h1>
+        
+        <img src="asset/img/pp.jpg" alt="My dearest love" class="main-photo">
+        
+        <p>
+            Aku mau minta maaf dulu karena udah salah mikir kaya gitu padahal kamu sayang banget sama aku. Aku juga minta maaf karena ngebuat kamu marah dan mikir yang engga engga. Mungkin ini ada sesuatu dari aku hehehe.
+        </p>
+        
+        <p>
+            Makasih ya udah jadi pacar yang baik. Yang paling baik malahan. Kamu baik banget nan sama aku, makasih ya. Aku beruntung bisa dapetin orang kaya kamu. Bisa memperjuangin kamu aku sangat beruntung. Mungkin kita ldr tapi aku bisa ngerasa kok kamu sayang sama aku. Aku bersyukur sih punya pacar kayak kamu. Selalu support aku walaupun banyak kesibukan, mau ngertiin aku dan aku bersyukur bisa ngebagi duniaku ke kamu. Makasih ya nanda sayang...
+        </p>
+        
+        <h2>Pertama Kali</h2>
+        <div class="photo-container">
+            <div class="memory">
+                <img src="asset/img/dm.jpg" alt="Our first date at the local cafe" class="memory-photo">
+                <div class="memory-description">
+                    <h3>Pertama Kali DM</h3>
+                    <p>Kocak banget sih pertama kali aku ngedm kamu hahaha. Dulu aku ngiranya diboongin nanas soal ig kamu. Hahaha gara gara emot api kita bisa sampai pacaran.</p>
+                </div>
+            </div>
+            <div class="memory">
+                <img src="asset/img/dc.jpg" alt="Our favorite vacation at the beach" class="memory-photo">
+                <div class="memory-description">
+                    <h3>Pertama Kali DC</h3>
+                    <p>Nah pas pertama kali dc nih aku udah mulai suka kamu. Hidupku kayak lebih enak aja gitu tiap malem ada yang nanyain hari ini ngapain aja. Capeknya langsung ilang serius.</p>
+                </div>
+            </div>
+            <div class="memory">
+                <img src="asset/img/skincare.png" alt="Celebrating your birthday with a surprise party" class="memory-photo">
+                <div class="memory-description">
+                    <h3>Pertama Kali Kamu skincarean</h3>
+                    <p>Ini juga kamu random banget tiba tiba skincarean depan aku. Tapi karena skincare kamu mood aku jadi bagus, tidur jadi nyenyak. Thanks banget pokoknya</p>
+                </div>
+            </div>
+			<div class="memory">
+                <img src="asset/img/tidur.jpg" alt="Celebrating your birthday with a surprise party" class="memory-photo">
+                <div class="memory-description">
+                    <h3>Pertama Kali Kamu Ketiduran</h3>
+                    <p>Hahahaha sipaling nempel molor. Dulu waktu kamu ketiduran aku sering banget ngobrol sama pipi kamu. Aku inget banget kamu dulu pertama kali langsung ngigau wkwkwkwkw</p>
+                </div>
+            </div>
+			<div class="memory">
+                <img src="asset/img/pertamadm.jpg" alt="Celebrating your birthday with a surprise party" class="memory-photo">
+                <div class="memory-description">
+                    <h3>Pertama Kali WA</h3>
+                    <p>Ini juga random amat tiba tiba pengen pindah wa hahahaha. Mana kamu ngiranya aku tukang paket lagi hahahaha</p>
+                </div>
+            </div>
+			<div class="memory">
+                <img src="asset/img/syg.jpg" alt="Celebrating your birthday with a surprise party" class="memory-photo">
+                <div class="memory-description">
+                    <h3>Pertama Kali Kamu Manggil Sayang</h3>
+                    <p>Sebenernya pas kita jadian terus kamu manggil aku sayang beuhhhh. Damagenya ga ngotak bjier. SALTING BRUTAL HAHAHAHA.</p>
+                </div>
+            </div>
+        </div>
+        
+		<h2>Random Moments</h2>
+        <div class="random-moments">
+            <img src="asset/img/random5.jpg" alt="Random moment 1" class="random-moment1">
+            <img src="asset/img/random6.jpg" alt="Random moment 2" class="random-moment1">
+            <video class="random-moment" controls>
+                <source src="asset/img/random7.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <img src="asset/img/random3.jpg" alt="Random moment 3" class="random-moment">
+            <video class="random-moment" controls>
+                <source src="asset/img/random8.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <img src="asset/img/random4.jpg" alt="Random moment 4" class="random-moment">
+			<video class="random-moment" controls>
+                <source src="asset/img/random9.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+			<video class="random-moment" controls>
+                <source src="asset/img/random11.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <p>
+            Semoga kamu suka yaa. Harapan aku kedepannya semoga kita bisa bareng terus. Kamu juga bisa nemenin aku dimomen momen bahagiaku. Aku juga gitu bisa nemenin kamu dimomen bahagia kamu. Semoga bisa cepet ketemu karena kangen banget anjir fak kata gw teh hahahaha. Intinya aku sayang banget sama kamu nanda.
+        </p>
+        
+        <p>
+            I love you more than words can express, and I promise to show you that love every single day.
+        </p>
+        
+        <div class="heart">&hearts;</div>
+        
+        <p style="text-align: center; font-size: 1.25rem;">Forever yours,</p>
+        <p style="text-align: center; font-size: 1.5rem; font-weight: bold; color: #e11d48;">[Gibran]</p>
+    </div>
+
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn" aria-label="Toggle background music">🔇</button>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="asset/audio/Yovie Widianto, HIVI! - Semenjak Ada Dirimu (Official Music Video).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Floating elements
+        function createFloatingElements() {
+            const elements = ['🌸', '💖'];
+            const container = document.body;
+
+            for (let i = 0; i < 20; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.textContent = elements[i % elements.length];
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100}%`;
+                element.style.animation = `float ${5 + Math.random() * 5}s ease-in-out infinite`;
+                element.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(element);
+            }
+        }
+
+        // Music control
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        let isMusicPlaying = false;
+
+        musicToggle.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                musicToggle.textContent = '🔇';
+            } else {
+                bgMusic.play();
+                musicToggle.textContent = '🔊';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+
+		document.addEventListener("DOMContentLoaded", () => {
+    	// Show notification
+    const notification = document.getElementById('notification');
+    notification.style.display = 'block';
+
+    // Hide notification after 5 seconds
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 5000);
+	});
+
+        // Initialize
+        createFloatingElements();
+    </script>
+</body>
+</html>
